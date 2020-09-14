@@ -1,2 +1,2 @@
 # jhomathy.github.io
-tpyo mag
+tpyo mag, a literary magazine for work with typos
