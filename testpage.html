@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+#myContainer {
+  width: 512px;
+  height: 512px;
+  position: relative;
+  background: white;
+}
+#myAnimation1 {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  background: red;
+}
+#myAnimation2 {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  background: blue;
+}
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid black;
+  padding: 10px;
+}
+
+</style>
+
+<head>
+
+</head>
+
+<body>
+
+<div class="center">
+	<p style="text-align: center;">
+		Now center _this__ text!
+	</p>
+</div>
+
+<h1>Now, An Animation:</h1>
+
+<div class="center" id ="myContainer">
+	<div id ="myAnimation1"></div>
+	<div id ="myAnimation2"></div>
+</div>
+
+<p>
+	<button onclick="myMove()">Click Me</button> 
+</p>
+
+
+
+<script>
+function myMove() {
+  var elem1 = document.getElementById("myAnimation1"); 
+  var elem2 = document.getElementById("myAnimation2");   
+  var pos = 0;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (pos > 256) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem1.style.top = pos + 'px'; 
+      elem1.style.left = 2 * pos + 'px'; 
+      elem2.style.top = 2 * pos + 'px'; 
+      elem2.style.left = pos + 'px'; 
+    }
+  }
+}
+</script>
+
+
+</body>

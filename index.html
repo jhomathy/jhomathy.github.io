@@ -2,18 +2,7 @@
 <html lang="en">
 
 <style>
-#myContainer {
-  width: 400px;
-  height: 400px;
-  position: relative;
-  background: white;
-}
-#myAnimation {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  background: red;
-}
+
 </style>
 
 <head>
@@ -52,30 +41,31 @@
 <h1>Now, An Animation:</h1>
 
 
+<a href="testpage.html">logo testing</a>
+
+
+
 <p>
-<button onclick="myMove()">Click Me</button> 
+TODO: 
+- author pages / authors page
+- works page
+- licensing info / copyright stuff
+
+
+<ul>
+	<li>
+		authors page
+	</li>
+	<li>
+		works page
+	</li>
+	<li>
+		licensing info / copyright stuff
+	</li>
+</ul>
+
+Oh by the way this copyrighted by ME (tommy schneider, legal name "thomas schneider") right now. 2020. also 2021, in case we get to that year. (rip rbg.)
 </p>
-
-<div id ="myContainer">
-<div id ="myAnimation"></div>
-</div>
-
-<script>
-function myMove() {
-  var elem = document.getElementById("myAnimation");   
-  var pos = 0;
-  var id = setInterval(frame, 10);
-  function frame() {
-    if (pos == 350) {
-      clearInterval(id);
-    } else {
-      pos++; 
-      elem.style.top = pos + 'px'; 
-      elem.style.left = pos + 'px'; 
-    }
-  }
-}
-</script>
 
 
 </body>
