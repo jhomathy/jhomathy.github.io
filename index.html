@@ -2,24 +2,13 @@
 <html lang="en">
 
 <style>
-#myContainer {
+#logoContainer {
   width: 512px;
-  height: 512px;
+  height: 128px;
   position: relative;
   background: white;
 }
-#myAnimation1 {
-  width: 64px;
-  height: 64px;
-  position: absolute;
-  background: red;
-}
-#myAnimation2 {
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  background: blue;
-}
+
 .center {
   margin: auto;
   width: 50%;
@@ -39,13 +28,31 @@
 	<p style="text-align: center;">
 		| T | P | Y | O |
 	</p>
+	<p style="text-align: center;">
+		A literary magazine for works with typos.
+	</p>
 </div>
+
+<br><br><br><br> 
+
+<div class="center">
+	<p style="text-align: center;">
+		<img id="t" src="imgs/the-t.png" alt="the letter 't', capitalized" width="64" height="64">
+		<img id="p" src="imgs/the-p.png" alt="the letter 'p', capitalized" width="64" height="64">
+		<img id="y" src="imgs/the-y.png" alt="the letter 'y', capitalized" width="64" height="64">
+		<img id="o" src="imgs/the-o.png" alt="the letter 'o', capitalized" width="64" height="64">
+	</p>
+</div>
+
+<br><br><br><br> 
 
 <h1>Now, An Animation:</h1>
 
-<div class="center" id ="myContainer">
-	<div id ="myAnimation1"></div>
-	<div id ="myAnimation2"></div>
+<div class="center" id ="logoContainer">
+	<div id ="t"></div>
+	<div id ="p"></div>
+	<div id ="y"></div>
+	<div id ="o"></div>
 </div>
 
 <p>
@@ -53,21 +60,18 @@
 </p>
 
 
-
 <script>
 function myMove() {
-  var elem1 = document.getElementById("myAnimation1"); 
-  var elem2 = document.getElementById("myAnimation2");   
-  var pos = 0;
+  var elem1 = document.getElementById("t"); 
+  var elem2 = document.getElementById("p");   
+  var pos = 128;
   var id = setInterval(frame, 10);
   function frame() {
     if (pos > 256) {
       clearInterval(id);
     } else {
       pos++; 
-      elem1.style.top = pos + 'px'; 
-      elem1.style.left = 2 * pos + 'px'; 
-      elem2.style.top = 2 * pos + 'px'; 
+      elem1.style.left = pos + 'px'; 
       elem2.style.left = pos + 'px'; 
     }
   }
@@ -75,29 +79,13 @@ function myMove() {
 </script>
 
 
+
 <a href="tommys.html">tommy's page</a>
 
-
 <p>
-TODO: 
-- author pages / authors page
-- works page
-- licensing info / copyright stuff
+Copyright &copy; by Jhomathy. 2020. 
 
-
-<ul>
-	<li>
-		authors page
-	</li>
-	<li>
-		works page
-	</li>
-	<li>
-		licensing info / copyright stuff
-	</li>
-</ul>
-
-Oh by the way this copyrighted by ME (tommy schneider, legal name "thomas schneider") right now. 2020. also 2021, in case we get to that year. (rip rbg.)
+can you write a public button for your website that publishes it?
 </p>
 
 
