@@ -2,6 +2,30 @@
 <html lang="en">
 
 <style>
+#myContainer {
+  width: 512px;
+  height: 512px;
+  position: relative;
+  background: white;
+}
+#myAnimation1 {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  background: red;
+}
+#myAnimation2 {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  background: blue;
+}
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid black;
+  padding: 10px;
+}
 
 </style>
 
@@ -10,39 +34,48 @@
 </head>
 
 <body>
-<a name="movingday"></a>
-<ul>
-	<li>
-		<p>
-			<a href="pdfs/movingday2019|05|10.pdf">"Moving Day"</a>
-			(lit181 draft)
-		</p>
-	</li>
-	<li>
-		<p>
-			<a href="pdfs/movingday2020|09|12.pdf">"Moving Day"</a>
-			(like the 2020/09/19 draft, but with two more typos and one fewer bibliography item)
-		</p>
-		
-	</li>
-	<li>
-		<p>
-			<a href="pdfs/movingday2020|09|19.pdf">"Moving Day"</a>
-			(most recent draft, no marginalia)
-		</p>
-	</li>
-</ul>
-<ol>
-	<li>
-		<a href="pdfs/movingday2020|09|32.pdf">"Moving Day: Chapter 8: The Grand Permute" (W/ New Marginalia! Provided by Non-Anonymous Contributor One.)</a>
-	</li>
-</ol>
+
+<div class="center">
+	<p style="text-align: center;">
+		| T | P | Y | O |
+	</p>
+</div>
 
 <h1>Now, An Animation:</h1>
 
+<div class="center" id ="myContainer">
+	<div id ="myAnimation1"></div>
+	<div id ="myAnimation2"></div>
+</div>
 
-<a href="testpage.html">logo testing</a>
+<p>
+	<button onclick="myMove()">Click Me</button> 
+</p>
 
+
+
+<script>
+function myMove() {
+  var elem1 = document.getElementById("myAnimation1"); 
+  var elem2 = document.getElementById("myAnimation2");   
+  var pos = 0;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (pos > 256) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem1.style.top = pos + 'px'; 
+      elem1.style.left = 2 * pos + 'px'; 
+      elem2.style.top = 2 * pos + 'px'; 
+      elem2.style.left = pos + 'px'; 
+    }
+  }
+}
+</script>
+
+
+<a href="tommys.html">tommy's page</a>
 
 
 <p>
