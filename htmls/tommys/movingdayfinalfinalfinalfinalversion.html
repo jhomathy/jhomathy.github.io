@@ -2,14 +2,96 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<style>
+body {
+  background-image: url("imgs/mdbg.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid black;
+  padding: 10px;
+  background-color: white;
+}
+</style>
 </head>
 
 <body>
-You have recieved version (#) of the story "Moving Day"
 
-<img id="t" src="http://www.tpyomag.com/imgs/mdbg.png" alt="the letter 't', capitalized" width="64" height="64">
 
-:(
+
+<div class="center">
+	<h1>
+		Moving Day
+	</h1>
+	<h3>
+		Click to recieve a copy of the short fiction story "Moving Day" by author Tommy Schneider, click the button below and a copy will be shipped directly to your web browser.
+	</h3>
+	<button onclick="getCopy()">Get A Random Copy</button>
+	<p id="demo1"></p>
+</div>
+
+<script>
+function getCopy() {
+  
+  var version = window.lastversion;
+  while (version == window.lastversion || version == 0) {
+  	version = Math.floor((Math.random() * 5) + -2);
+  }
+  window.lastversion = version;
+  
+  if (version == -2) {
+  	mdcopy = "md1.pdf";
+  	title = '"Moving Day"';
+  } else if (version == -1) {
+  mdcopy = "md2.pdf";
+  title = '"Moving Day"';
+  } else if (version == 1) {
+  mdcopy = "md3.pdf";
+  title = '"Moving Day: Chapter 8: The Grand Permute"';
+  } else if (version == 2) {
+  mdcopy = "md4.pdf";
+  title = '"Chapter 8: The Grand Permute: New York on Moving Day"';
+  }
+  else {
+  mdcopy = "mdna.pdf";
+  title = 'Moving Day_Metadata'
+  }
+  mdcopy = "pdfs/" + mdcopy;
+
+  var toDisplay = '<h3>Version: ' + version + '</h3>';
+  toDisplay += '<a href="' + mdcopy + '">a pdf of ' + title + '</a>';
+
+  toDisplay += '<p><button onclick="getRecent()">Get Most Recent Version</button></p><p id="demo2"></p>';
+
+  document.getElementById("demo1").innerHTML = toDisplay;
+}
+
+</script>
+
+<script>
+function getRecent() {
+  document.getElementById("demo2").innerHTML = '<h3>Version: ' + '2' + '</h3>' + '<a href="' + 'pdfs/md4.pdf' + '">a pdf of ' + '"Chapter 8: The Grand Permute: New York on Moving Day"' + '</a>';
+}
+
+</script>
+
+<div class="center" style="position: absolute; right: 100px; bottom: 100px; width: 50%;">
+
+<p>
+	This is a work of fiction. Any apparent references to public figures, geographic locations, or historical events are entirely coincidental. First Published in Claremont, CA. Distributed as a class handout. Stapled, for some reason, in the most inconvenient corner.
+</p>
+
+<p>
+Copyright &copy; by Thomas Schneider 2019 2020 2021 2022 2023 2024 2025 2026 2027 2028 2029 2030 2031 2032 2033 2034 2035 2036 2037 2038 2039 2040 2041 2042. All rights reserved. 
+<!-- Printed and brought to you by Nord VPN, CA. --> 
+</p>
+</div>
 
 </body>
 </html>
