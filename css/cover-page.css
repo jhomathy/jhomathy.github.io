@@ -81,14 +81,3 @@ canvas {
 	margin-left: -250px;
 }
 
-@media only screen and (max-width:620px) {
-	p.title {
-		margin-left: -70px;
-	}
-	p.motive {
-		margin-left: -200px;
-	}
-	canvas {
-		margin-left: -240px;
-	}
-}
