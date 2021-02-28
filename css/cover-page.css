@@ -52,6 +52,19 @@ p.motive {
 
 }
 
+.spacing1 {
+	position: relative;
+	top: 80px;
+	left: 50%;
+
+	width: 600px;
+	height: 20px;
+
+	margin-left: -300px;
+
+	background: #888888;
+}
+
 .faq {
 	position: relative;
 	top: 20px;
@@ -66,6 +79,4 @@ canvas {
 	left: 50%;
 
 	margin-left: -250px;
-
-	margin: 20px;
 }
