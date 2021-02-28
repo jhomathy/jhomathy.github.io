@@ -34,18 +34,18 @@ function init() {
     var x, y;
     if (Math.random() > 0.5) {
       if (Math.random() > 0.5) {
-        x = 0; y = Math.random() * (canvas.height - 42);
+        x = 0; y = Math.random() * (canvas.height - 28);
       }
       else {
-        x = canvas.width - 42; y = Math.random() * (canvas.height - 42);
+        x = canvas.width - 28; y = Math.random() * (canvas.height - 28);
       }
     }
     else {
       if (Math.random() > 0.5) {
-        x = Math.random() * (canvas.width - 42); y = 0;
+        x = Math.random() * (canvas.width - 28); y = 0;
       }
       else {
-        x = Math.random() * (canvas.width - 42); y = canvas.height - 42;
+        x = Math.random() * (canvas.width - 28); y = canvas.height - 28;
       }
     }
     return [x, y];
@@ -60,7 +60,7 @@ function init() {
 
   // letters into the page
   for (var i = 0; i < 50; i++) {
-    var randomLetter = new createjs.Text(alphabet[Math.random() * alphabet.length | 0], "42px Times", "#000000");
+    var randomLetter = new createjs.Text(alphabet[Math.random() * alphabet.length | 0], "28px Times", "#000000");
 
     randomLetter.x = 0;
     randomLetter.y = 0;
@@ -73,9 +73,9 @@ function init() {
       .to({alpha: 1}, 500);
 
     createjs.Tween.get(randomLetter, {loop: -1})
-      .to({x: 0, y: canvas.height - 42}, randomLetter.speed)
-      .to({x: canvas.width - 42, y: canvas.height - 42}, randomLetter.speed)
-      .to({x: canvas.width - 42, y: 0}, randomLetter.speed)
+      .to({x: 0, y: canvas.height - 28}, randomLetter.speed)
+      .to({x: canvas.width - 28, y: canvas.height - 28}, randomLetter.speed)
+      .to({x: canvas.width - 28, y: 0}, randomLetter.speed)
       .to({x: 0, y: 0}, randomLetter.speed);
 
     stage.addChild(randomLetter);
@@ -83,7 +83,7 @@ function init() {
 
   // letter out of the page
   for (var i = 0; i < 50; i++) {
-    var randomLetter = new createjs.Text(alphabet[Math.random() * alphabet.length | 0], "42px Arial", "#000000");
+    var randomLetter = new createjs.Text(alphabet[Math.random() * alphabet.length | 0], "28px Arial", "#000000");
 
     randomLetter.x = 0;
     randomLetter.y = 0;
@@ -96,9 +96,9 @@ function init() {
       .to({alpha: 1}, 500);
 
     createjs.Tween.get(randomLetter, {loop: -1})
-      .to({x: canvas.width - 42, y: 0}, randomLetter.speed)
-      .to({x: canvas.width - 42, y: canvas.height - 42}, randomLetter.speed)
-      .to({x: 0, y: canvas.height - 42}, randomLetter.speed)
+      .to({x: canvas.width - 28, y: 0}, randomLetter.speed)
+      .to({x: canvas.width - 28, y: canvas.height - 28}, randomLetter.speed)
+      .to({x: 0, y: canvas.height - 28}, randomLetter.speed)
       .to({x: 0, y: 0}, randomLetter.speed);
 
     stage.addChild(randomLetter);
@@ -112,7 +112,7 @@ function init() {
     var maxTime = 0;
 
     for (let i = 0; i < word.length; i++) {
-      var letter = new createjs.Text(word[i], "42px Times", "#000000");
+      var letter = new createjs.Text(word[i], "28px Times", "#000000");
       letter.finalX = xPos;
       letter.finalY = yPos;
 
@@ -153,16 +153,16 @@ function init() {
 
   }
 
-  makeWordButton("About", 100, 100, gotoAbout);
-  makeWordButton("Poems", 100, 150, gotoStory);
-  makeWordButton("Stories", 100, 200, gotoStory);
-  makeWordButton("QFA", 100, 250, gotoQAF);
+  makeWordButton("About", 60, 60, gotoAbout);
+  makeWordButton("Poems", 60, 95, gotoStory);
+  makeWordButton("Stories", 60, 130, gotoStory);
+  makeWordButton("QFA", 60, 165, gotoQFA);
 
   function gotoStory() {
     window.open ('htmls/tommys/movingdayfinalfinalfinalfinalversion.html','_self',false);
   }
 
-  function gotoQAF() {
+  function gotoQFA() {
     window.open ('index.html#qaf','_self',false);
   }
 
@@ -191,7 +191,7 @@ function init() {
 
 <br><br><br><br> 
 
-<canvas id="testCanvas" width="500" height="500"></canvas>
+<canvas id="testCanvas" width="320" height="320"></canvas>
 
 <div id="about" class="About">
 
@@ -214,14 +214,24 @@ function init() {
 </div>
 
 <div id="qaf" class="faq">
-  <br><br> 
+
+<br><br> 
+
 <h1>Questions, Frequently Asked</h1>
+
+<br><br> 
 
 <h3>Hi, uh, is this a question?</h3>
 
+<br><br> 
+
 <p>Yes, you are asking a question. Thank you for asking it. It is a question.</p>
 
+<br><br> 
+
 <h3>What about this, is this a question?</h3>
+
+<br><br> 
 
 <p>Once again, this is a question. I can tell, because it has the "?" symbol at the end. This makes it a question, a question that you have asked.</p>
 
