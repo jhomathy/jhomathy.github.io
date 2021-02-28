@@ -27,7 +27,7 @@ p.title {
 	border-width: 2px;
 	border-color: black;
 
-	margin-left: -70px;
+	margin-left: -81px;
 
 }
 
@@ -48,7 +48,7 @@ p.motive {
 	border-width: 2px;
 	border-color: black;
 
-	margin-left: -200px;
+	margin-left: -211px;
 
 }
 
@@ -60,7 +60,7 @@ p.motive {
 	width: 600px;
 	height: 20px;
 
-	margin-left: -300px;
+	margin-left: -310px;
 
 	background: #888888;
 }
@@ -78,5 +78,11 @@ canvas {
 	top: 20px;
 	left: 50%;
 
-	margin-left: -245px;
+	margin-left: -250px;
+}
+
+@media only screen and (max-width:620px) {
+	body {
+		background: #FFFFFF;
+	}
 }
