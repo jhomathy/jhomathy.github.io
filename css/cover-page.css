@@ -27,7 +27,7 @@ p.title {
 	border-width: 2px;
 	border-color: black;
 
-	margin-left: -80px;
+	margin-left: -81px;
 
 }
 
@@ -48,7 +48,7 @@ p.motive {
 	border-width: 2px;
 	border-color: black;
 
-	margin-left: -210px;
+	margin-left: -211px;
 
 }
 
@@ -78,5 +78,5 @@ canvas {
 	top: 20px;
 	left: 50%;
 
-	margin-left: -250px;
+	margin-left: -245px;
 }
