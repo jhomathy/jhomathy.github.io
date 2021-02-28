@@ -52,6 +52,8 @@ function init() {
 
   var canvas = document.getElementById("testCanvas");
   var stage = new createjs.Stage(canvas);
+  
+  stage.enableMouseOver(10);
 
   var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
@@ -101,7 +103,13 @@ function init() {
     stage.addChild(randomLetter);
   }
 
-  function makeWordButton(word, xPos, yPos) {
+  function makeWordButton(word, xPos, yPos, fn) {
+
+    var xPosCopy = xPos;
+    var yPosCopy = yPos;
+
+    var maxTime = 0;
+
     for (let i = 0; i < word.length; i++) {
       var letter = new createjs.Text(word[i], "42px Times", "#000000");
       letter.finalX = xPos;
@@ -113,6 +121,7 @@ function init() {
       letter.y = coords[1];
       letter.speed = Math.random() * 2000 + 500;
       letter.reveal = Math.random() * 2000 + 2000;
+      maxTime = Math.max(maxTime, letter.reveal + letter.speed);
       letter.alpha = 0;
 
       createjs.Tween.get(letter, {loop: 0})
@@ -123,23 +132,41 @@ function init() {
       stage.addChild(letter);
       xPos = letter.finalX + letter.getMeasuredWidth();
     }
+
+    function handleInteraction(event) {
+        event.target.alpha = (event.type == "mouseover") ? 0.5 : 0.01; 
+    }
+
+    var rect = new createjs.Shape();
+    rect.graphics.beginFill("#888888").drawRect(xPosCopy -2, yPosCopy - 5, xPos - xPosCopy + 4, letter.getMeasuredHeight());
+    rect.alpha = 0;
+    createjs.Tween.get(rect, {loop: 0})
+        .wait(maxTime)
+        .to({alpha: 0.01});
+    
+    rect.on("click", fn);
+    rect.on("mouseover", handleInteraction);
+    rect.on("mouseout", handleInteraction);
+
+    stage.addChild(rect);
+
   }
 
-  makeWordButton("About", 100, 100);
-  makeWordButton("Poems", 100, 150);
-  makeWordButton("Stories", 100, 200);
-  makeWordButton("QFA", 100, 250);
-
-  var circle = new createjs.Shape();
-  circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
-  circle.x = 300;
-  circle.y = 300;
-  stage.addChild(circle);
-  circle.on("click", gotoAbout);
-
+  makeWordButton("About", 100, 100, gotoHome);
+  makeWordButton("Poems", 100, 150, gotoAbout);
+  makeWordButton("Stories", 100, 200, gotoAbout);
+  makeWordButton("QFA", 100, 250, gotoQAF);
 
   function gotoAbout() {
     window.open ('htmls/tommys/movingdayfinalfinalfinalfinalversion.html','_self',false);
+  }
+
+  function gotoQAF() {
+    window.open ('index.html#qaf','_self',false);
+  }
+
+  function gotoHome() {
+    window.open ('index.html','_self',false);
   }
 
   createjs.Ticker.addEventListener("tick", stage);
@@ -163,7 +190,7 @@ function init() {
 
 <canvas id="testCanvas" width="500" height="500"></canvas>
 
-<div class="faq">
+<div id="qaf" class="faq">
 <h1>Questions, Frequently Asked</h1>
 
 <h3>Hi, uh, is this a question?</h3>
