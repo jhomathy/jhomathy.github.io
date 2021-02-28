@@ -152,12 +152,12 @@ function init() {
 
   }
 
-  makeWordButton("About", 100, 100, gotoHome);
-  makeWordButton("Poems", 100, 150, gotoAbout);
-  makeWordButton("Stories", 100, 200, gotoAbout);
+  makeWordButton("About", 100, 100, gotoAbout);
+  makeWordButton("Poems", 100, 150, gotoStory);
+  makeWordButton("Stories", 100, 200, gotoStory);
   makeWordButton("QFA", 100, 250, gotoQAF);
 
-  function gotoAbout() {
+  function gotoStory() {
     window.open ('htmls/tommys/movingdayfinalfinalfinalfinalversion.html','_self',false);
   }
 
@@ -165,8 +165,8 @@ function init() {
     window.open ('index.html#qaf','_self',false);
   }
 
-  function gotoHome() {
-    window.open ('index.html','_self',false);
+  function gotoAbout() {
+    window.open ('index.html#about','_self',false);
   }
 
   createjs.Ticker.addEventListener("tick", stage);
@@ -190,6 +190,23 @@ function init() {
 
 <canvas id="testCanvas" width="500" height="500"></canvas>
 
+<div id="about" class="About">
+<h1>About</h1>
+
+<br><br> 
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus et. Nec feugiat in fermentum posuere urna nec. Donec ac odio tempor orci dapibus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Non curabitur gravida arcu ac tortor. Elementum pulvinar etiam non quam lacus. Condimentum lacinia quis vel eros donec ac odio. Euismod quis viverra nibh cras pulvinar mattis nunc. A cras semper auctor neque vitae tempus. Eros donec ac odio tempor orci dapibus ultrices. Sit amet massa vitae tortor. Tincidunt eget nullam non nisi est sit. Et malesuada fames ac turpis egestas sed tempus urna. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Facilisi etiam dignissim diam quis. Leo duis ut diam quam. Dignissim sodales ut eu sem integer vitae justo eget. Pellentesque eu tincidunt tortor aliquam nulla. Donec massa sapien faucibus et molestie ac feugiat.</p>
+
+<br><br> 
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus et. Nec feugiat in fermentum posuere urna nec. Donec ac odio tempor orci dapibus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Non curabitur gravida arcu ac tortor. Elementum pulvinar etiam non quam lacus. Condimentum lacinia quis vel eros donec ac odio. Euismod quis viverra nibh cras pulvinar mattis nunc. A cras semper auctor neque vitae tempus. Eros donec ac odio tempor orci dapibus ultrices. Sit amet massa vitae tortor. Tincidunt eget nullam non nisi est sit. Et malesuada fames ac turpis egestas sed tempus urna. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Facilisi etiam dignissim diam quis. Leo duis ut diam quam. Dignissim sodales ut eu sem integer vitae justo eget. Pellentesque eu tincidunt tortor aliquam nulla. Donec massa sapien faucibus et molestie ac feugiat.</p>
+
+<br><br> 
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus et. Nec feugiat in fermentum posuere urna nec. Donec ac odio tempor orci dapibus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Non curabitur gravida arcu ac tortor. Elementum pulvinar etiam non quam lacus. Condimentum lacinia quis vel eros donec ac odio. Euismod quis viverra nibh cras pulvinar mattis nunc. A cras semper auctor neque vitae tempus. Eros donec ac odio tempor orci dapibus ultrices. Sit amet massa vitae tortor. Tincidunt eget nullam non nisi est sit. Et malesuada fames ac turpis egestas sed tempus urna. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Facilisi etiam dignissim diam quis. Leo duis ut diam quam. Dignissim sodales ut eu sem integer vitae justo eget. Pellentesque eu tincidunt tortor aliquam nulla. Donec massa sapien faucibus et molestie ac feugiat.</p>
+<br><br> 
+</div>
+
 <div id="qaf" class="faq">
 <h1>Questions, Frequently Asked</h1>
 
@@ -201,7 +218,24 @@ function init() {
 
 <p>Once again, this is a question. I can tell, because it has the "?" symbol at the end. This makes it a question, a question that you have asked.</p>
 
+<br><br> 
+
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus et. Nec feugiat in fermentum posuere urna nec. Donec ac odio tempor orci dapibus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Non curabitur gravida arcu ac tortor. Elementum pulvinar etiam non quam lacus. Condimentum lacinia quis vel eros donec ac odio. Euismod quis viverra nibh cras pulvinar mattis nunc. A cras semper auctor neque vitae tempus. Eros donec ac odio tempor orci dapibus ultrices. Sit amet massa vitae tortor. Tincidunt eget nullam non nisi est sit. Et malesuada fames ac turpis egestas sed tempus urna. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Facilisi etiam dignissim diam quis. Leo duis ut diam quam. Dignissim sodales ut eu sem integer vitae justo eget. Pellentesque eu tincidunt tortor aliquam nulla. Donec massa sapien faucibus et molestie ac feugiat.</p>
+
+<br><br> 
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus et. Nec feugiat in fermentum posuere urna nec. Donec ac odio tempor orci dapibus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Non curabitur gravida arcu ac tortor. Elementum pulvinar etiam non quam lacus. Condimentum lacinia quis vel eros donec ac odio. Euismod quis viverra nibh cras pulvinar mattis nunc. A cras semper auctor neque vitae tempus. Eros donec ac odio tempor orci dapibus ultrices. Sit amet massa vitae tortor. Tincidunt eget nullam non nisi est sit. Et malesuada fames ac turpis egestas sed tempus urna. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Facilisi etiam dignissim diam quis. Leo duis ut diam quam. Dignissim sodales ut eu sem integer vitae justo eget. Pellentesque eu tincidunt tortor aliquam nulla. Donec massa sapien faucibus et molestie ac feugiat.</p>
+
+<br><br> 
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus et. Nec feugiat in fermentum posuere urna nec. Donec ac odio tempor orci dapibus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Non curabitur gravida arcu ac tortor. Elementum pulvinar etiam non quam lacus. Condimentum lacinia quis vel eros donec ac odio. Euismod quis viverra nibh cras pulvinar mattis nunc. A cras semper auctor neque vitae tempus. Eros donec ac odio tempor orci dapibus ultrices. Sit amet massa vitae tortor. Tincidunt eget nullam non nisi est sit. Et malesuada fames ac turpis egestas sed tempus urna. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Facilisi etiam dignissim diam quis. Leo duis ut diam quam. Dignissim sodales ut eu sem integer vitae justo eget. Pellentesque eu tincidunt tortor aliquam nulla. Donec massa sapien faucibus et molestie ac feugiat.</p>
+
+<br><br> 
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus et. Nec feugiat in fermentum posuere urna nec. Donec ac odio tempor orci dapibus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Non curabitur gravida arcu ac tortor. Elementum pulvinar etiam non quam lacus. Condimentum lacinia quis vel eros donec ac odio. Euismod quis viverra nibh cras pulvinar mattis nunc. A cras semper auctor neque vitae tempus. Eros donec ac odio tempor orci dapibus ultrices. Sit amet massa vitae tortor. Tincidunt eget nullam non nisi est sit. Et malesuada fames ac turpis egestas sed tempus urna. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Facilisi etiam dignissim diam quis. Leo duis ut diam quam. Dignissim sodales ut eu sem integer vitae justo eget. Pellentesque eu tincidunt tortor aliquam nulla. Donec massa sapien faucibus et molestie ac feugiat.</p>
+
+<br><br> 
+
 </div>
 
 
