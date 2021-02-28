@@ -1,38 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<!--
+  RESOURCES
+https://www.createjs.com/getting-started/easeljs
+-->
 
+<!--
+TODOs:
+
+animation:
+- make an arbitrary object move around the page border
+
+accessibility:
+- make sure site responds to screen readers well
+- run it through an accessibility checking website (or a few)
+
+pick deadlines + advertising strategy
+
+launch!
+--> 
+
+<head>
+  <title> TPYO Mag</title>
+  <link href="css/cover-page.css" type="text/css" rel="stylesheet"/>
+  <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+  <script src="https://code.createjs.com/1.0.0/tweenjs.min.js"></script>
+  <script> 
+var canvas, stage;
+
+function init() {
+  canvas = document.getElementById("testCanvas");
+  stage = new createjs.Stage(canvas);
+
+  var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+
+for (var i = 0; i < 3; i++) {
+  var randomLetter = new createjs.Text(alphabet[Math.random() * alphabet.length | 0], "42px Arial", "#000000");
+
+  randomLetter.x = 0;
+  randomLetter.y = 0;
+
+  createjs.Tween.get(randomLetter, {loop: -1})
+    .wait(Math.random() * 2000)
+    .to({x: 0, y: canvas.height - 42}, 1500)
+    .to({x: canvas.width - 42, y: canvas.height - 42}, 1500)
+    .to({x: canvas.width - 42, y: 0}, 1500)
+    .to({x: 0, y: 0}, 1500)
+
+  stage.addChild(randomLetter);
+}
+  createjs.Ticker.addEventListener("tick", stage);
+}
+    </script>
 </head>
 
-<body>
 
-<div class="center">
-	<p style="text-align: center;">
-		| T | P | Y | O |
-	</p>
-	<p style="text-align: center;">
-		A literary magazine for works with typos.
-	</p>
+<body onload="init();">
+
+
+
+<div>
+  <p class="title"> 
+    | T | P | Y | O |
+  </p>
+  <p class="motive">
+    A literary magazine for works with typos.
+  </p>
 </div>
 
 <br><br><br><br> 
 
-<div class="center">
-	<p style="text-align: center;">
-		<img id="t" src="imgs/the-t.png" alt="the letter 't', capitalized" width="64" height="64">
-		<img id="p" src="imgs/the-p.png" alt="the letter 'p', capitalized" width="64" height="64">
-		<img id="y" src="imgs/the-y.png" alt="the letter 'y', capitalized" width="64" height="64">
-		<img id="o" src="imgs/the-o.png" alt="the letter 'o', capitalized" width="64" height="64">
-	</p>
-</div>
+<canvas id="testCanvas" width="500" height="500"></canvas>
 
 
-<a href="tommys.html">tommy's page</a>
-
-<p>
-Copyright &copy; by Jhomathy. 2020. 
-</p>
 
 </body>
 </html>
