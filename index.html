@@ -34,19 +34,47 @@ function init() {
   stage = new createjs.Stage(canvas);
 
   var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-
-for (var i = 0; i < 3; i++) {
+// letters into the page
+for (var i = 0; i < 25; i++) {
   var randomLetter = new createjs.Text(alphabet[Math.random() * alphabet.length | 0], "42px Arial", "#000000");
 
   randomLetter.x = 0;
   randomLetter.y = 0;
+  randomLetter.speed = Math.random() * 2000 + 500;
+  randomLetter.reveal = Math.random() * 5000 + 1000;
+  randomLetter.alpha = 0;
+
+  createjs.Tween.get(randomLetter, {loop: 0})
+    .wait(randomLetter.reveal)
+    .to({alpha: 1}, 500);
 
   createjs.Tween.get(randomLetter, {loop: -1})
-    .wait(Math.random() * 2000)
-    .to({x: 0, y: canvas.height - 42}, 1500)
-    .to({x: canvas.width - 42, y: canvas.height - 42}, 1500)
-    .to({x: canvas.width - 42, y: 0}, 1500)
-    .to({x: 0, y: 0}, 1500)
+    .to({x: 0, y: canvas.height - 42}, randomLetter.speed)
+    .to({x: canvas.width - 42, y: canvas.height - 42}, randomLetter.speed)
+    .to({x: canvas.width - 42, y: 0}, randomLetter.speed)
+    .to({x: 0, y: 0}, randomLetter.speed)
+
+  stage.addChild(randomLetter);
+}
+// letter out of the page
+for (var i = 0; i < 25; i++) {
+  var randomLetter = new createjs.Text(alphabet[Math.random() * alphabet.length | 0], "42px Arial", "#000000");
+
+  randomLetter.x = 0;
+  randomLetter.y = 0;
+  randomLetter.speed = Math.random() * 2000 + 500;
+  randomLetter.reveal = Math.random() * 3000 + 1000;
+  randomLetter.alpha = 0;
+
+  createjs.Tween.get(randomLetter, {loop: 0})
+    .wait(randomLetter.reveal)
+    .to({alpha: 1}, 500);
+
+  createjs.Tween.get(randomLetter, {loop: -1})
+    .to({x: canvas.width - 42, y: 0}, randomLetter.speed)
+    .to({x: canvas.width - 42, y: canvas.height - 42}, randomLetter.speed)
+    .to({x: 0, y: canvas.height - 42}, randomLetter.speed)
+    .to({x: 0, y: 0}, randomLetter.speed)
 
   stage.addChild(randomLetter);
 }
