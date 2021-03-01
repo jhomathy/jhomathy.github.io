@@ -11,49 +11,42 @@ body {
 }
 
 #title {
-
 	position: relative;
 	top: 40px;
-	left: 50%;
 
 	text-align: center;
 	font-size: 24px;
 	font-weight: normal;
 	
-	width: 280px;
+	width: 320px;
 
-	align-content: center;
+	margin: 0 auto;
+	margin-left: -6;
 
 	padding: 10px;
 	border-style: solid;
 	border-width: 2px;
 	border-color: black;
-
-	margin-left: -146px;
-
 }
 
 #motive {
 	position: relative;
 	top: 60px;
-	left: 50%;
 
 	text-align: center;
 	font-size: 16px;
 	font-weight: normal;
 
-	width: 360px;
+	width: 420px;
 
-	align-content: center;
+	margin: 0 auto;
+	margin-left: -6;
 
 	padding: 10px;
 	border-style: solid;
 	border-width: 2px;
 	border-color: black;
-
-	margin-left: -186px;
 }
-
 
 .block {
 	position: relative;
@@ -67,6 +60,47 @@ body {
 	border-style: solid;
 	border-width: 2px;
 	border-color: black;
+}
+
+@media screen and (max-width: 432px) {
+	#title, #motive, .block {
+		margin: 0 auto;
+		width: 90%;
+		left: auto;
+		margin-left: auto;
+	};
+}
+
+.poem {
+	position: relative;
+	top: 100px;
+
+	padding: 10px;
+	margin: 10px;
+
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+}
+
+.story {
+	position: relative;
+	top: 100px;
+
+	padding: 10px;
+	margin: 10px;
+
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+}
+
+#poem_0 {
+	width: 360px;
+}
+
+#legal {
+	font-size: 10px;
 }
 
 .space {
