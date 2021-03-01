@@ -18,7 +18,8 @@ body {
 
 	text-align: center;
 	font-size: 24px;
-
+	font-weight: normal;
+	
 	width: 280px;
 
 	align-content: center;
@@ -40,6 +41,7 @@ body {
 
 	text-align: center;
 	font-size: 16px;
+	font-weight: normal;
 
 	width: 400px;
 
@@ -79,5 +81,6 @@ canvas {
 	left: 50%;
 
 	margin-left: -155px;
+	margin-bottom: 10px;
 }
 
