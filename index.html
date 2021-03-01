@@ -24,28 +24,35 @@ launch!
 <head>
   <title> TPYO Mag</title>
   <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <meta charset="utf-8"/>
   <link href="css/cover-page.css" type="text/css" rel="stylesheet"/>
   <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
   <script src="https://code.createjs.com/1.0.0/tweenjs.min.js"></script>
 <script> 
 
 function init() {
+
+  var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  var fonts = ["Times", "Arial", "Courier"];
+  var fontSize = 28;
+  var randomFontsInButtons = false;
+
   function getBorderCoords() {
     var x, y;
     if (Math.random() > 0.5) {
       if (Math.random() > 0.5) {
-        x = 0; y = Math.random() * (canvas.height - 28);
+        x = 0; y = Math.random() * (canvas.height - fontSize);
       }
       else {
-        x = canvas.width - 28; y = Math.random() * (canvas.height - 28);
+        x = canvas.width - fontSize; y = Math.random() * (canvas.height - fontSize);
       }
     }
     else {
       if (Math.random() > 0.5) {
-        x = Math.random() * (canvas.width - 28); y = 0;
+        x = Math.random() * (canvas.width - fontSize); y = 0;
       }
       else {
-        x = Math.random() * (canvas.width - 28); y = canvas.height - 28;
+        x = Math.random() * (canvas.width - fontSize); y = canvas.height - fontSize;
       }
     }
     return [x, y];
@@ -56,50 +63,37 @@ function init() {
   
   stage.enableMouseOver(10);
 
-  var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
   // letters into the page
-  for (var i = 0; i < 50; i++) {
-    var randomLetter = new createjs.Text(alphabet[Math.random() * alphabet.length | 0], "28px Times", "#000000");
+  for (var i = 0; i < 100; i++) {
+    var lett = alphabet[Math.random() * alphabet.length | 0];
+    var font = fonts[Math.random() * fonts.length | 0];
+    var randomLetter = new createjs.Text(lett, fontSize + "px " + font, "#000000");
 
     randomLetter.x = 0;
     randomLetter.y = 0;
     randomLetter.speed = Math.random() * 2000 + 500;
-    randomLetter.reveal = Math.random() * 6000 + 1000;
+    randomLetter.reveal = Math.random() * 4000 + 1000;
     randomLetter.alpha = 0;
 
     createjs.Tween.get(randomLetter, {loop: 0})
       .wait(randomLetter.reveal)
       .to({alpha: 1}, 500);
 
-    createjs.Tween.get(randomLetter, {loop: -1})
-      .to({x: 0, y: canvas.height - 28}, randomLetter.speed)
-      .to({x: canvas.width - 28, y: canvas.height - 28}, randomLetter.speed)
-      .to({x: canvas.width - 28, y: 0}, randomLetter.speed)
-      .to({x: 0, y: 0}, randomLetter.speed);
-
-    stage.addChild(randomLetter);
-  }
-
-  // letter out of the page
-  for (var i = 0; i < 50; i++) {
-    var randomLetter = new createjs.Text(alphabet[Math.random() * alphabet.length | 0], "28px Arial", "#000000");
-
-    randomLetter.x = 0;
-    randomLetter.y = 0;
-    randomLetter.speed = Math.random() * 2000 + 500;
-    randomLetter.reveal = Math.random() * 6000 + 1000;
-    randomLetter.alpha = 0;
-
-    createjs.Tween.get(randomLetter, {loop: 0})
-      .wait(randomLetter.reveal)
-      .to({alpha: 1}, 500);
-
-    createjs.Tween.get(randomLetter, {loop: -1})
-      .to({x: canvas.width - 28, y: 0}, randomLetter.speed)
-      .to({x: canvas.width - 28, y: canvas.height - 28}, randomLetter.speed)
-      .to({x: 0, y: canvas.height - 28}, randomLetter.speed)
-      .to({x: 0, y: 0}, randomLetter.speed);
+    if (i > 50) {
+      createjs.Tween.get(randomLetter, {loop: -1})
+        .to({x: 0, y: canvas.height - fontSize}, randomLetter.speed)
+        .to({x: canvas.width - fontSize, y: canvas.height - fontSize}, randomLetter.speed)
+        .to({x: canvas.width - fontSize, y: 0}, randomLetter.speed)
+        .to({x: 0, y: 0}, randomLetter.speed);
+    }
+    else {
+      createjs.Tween.get(randomLetter, {loop: -1})
+        .to({x: canvas.width - fontSize, y: 0}, randomLetter.speed)
+        .to({x: canvas.width - fontSize, y: canvas.height - fontSize}, randomLetter.speed)
+        .to({x: 0, y: canvas.height - fontSize}, randomLetter.speed)
+        .to({x: 0, y: 0}, randomLetter.speed);
+    }
 
     stage.addChild(randomLetter);
   }
@@ -112,7 +106,9 @@ function init() {
     var maxTime = 0;
 
     for (let i = 0; i < word.length; i++) {
-      var letter = new createjs.Text(word[i], "28px Times", "#000000");
+      if (randomFontsInButtons) {var font = fonts[Math.random() * fonts.length | 0];}
+      else {var font = fonts[0];}
+      var letter = new createjs.Text(word[i], "28px " + font, "#000000");
       letter.finalX = xPos;
       letter.finalY = yPos;
 
@@ -156,7 +152,7 @@ function init() {
   makeWordButton("About", 60, 60, gotoAbout);
   makeWordButton("Poems", 60, 95, gotoStory);
   makeWordButton("Stories", 60, 130, gotoStory);
-  makeWordButton("QFA", 60, 165, gotoQFA);
+  makeWordButton("QFAs", 60, 165, gotoQFA);
 
   function gotoStory() {
     window.open ('htmls/tommys/movingdayfinalfinalfinalfinalversion.html','_self',false);
@@ -179,29 +175,21 @@ function init() {
 <body onload="init();">
 
 <div>
-  <p class="title"> 
+  <h1 id="title"> 
     | T | P | Y | O |
-  </p>
-  <p class="motive">
+  </h1>
+  <h2 id="motive">
     A literary magazine for works with typos.
-  </p>
+  </h2>
 </div>
 
-<div class="spacing1"></div>
-
-<br><br><br><br> 
 
 <canvas id="testCanvas" width="320" height="320"></canvas>
 
-<div id="about" class="About">
 
-<br><br> <br><br>
+<div id="about" class="block">
 
-<h1>About</h1>
-
-<br><br> 
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus et. Nec feugiat in fermentum posuere urna nec. Donec ac odio tempor orci dapibus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Non curabitur gravida arcu ac tortor. Elementum pulvinar etiam non quam lacus. Condimentum lacinia quis vel eros donec ac odio. Euismod quis viverra nibh cras pulvinar mattis nunc. A cras semper auctor neque vitae tempus. Eros donec ac odio tempor orci dapibus ultrices. Sit amet massa vitae tortor. Tincidunt eget nullam non nisi est sit. Et malesuada fames ac turpis egestas sed tempus urna. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Facilisi etiam dignissim diam quis. Leo duis ut diam quam. Dignissim sodales ut eu sem integer vitae justo eget. Pellentesque eu tincidunt tortor aliquam nulla. Donec massa sapien faucibus et molestie ac feugiat.</p>
+<h3>About</h3>
 
 <br><br> 
 
@@ -210,18 +198,19 @@ function init() {
 <br><br> 
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus et. Nec feugiat in fermentum posuere urna nec. Donec ac odio tempor orci dapibus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Non curabitur gravida arcu ac tortor. Elementum pulvinar etiam non quam lacus. Condimentum lacinia quis vel eros donec ac odio. Euismod quis viverra nibh cras pulvinar mattis nunc. A cras semper auctor neque vitae tempus. Eros donec ac odio tempor orci dapibus ultrices. Sit amet massa vitae tortor. Tincidunt eget nullam non nisi est sit. Et malesuada fames ac turpis egestas sed tempus urna. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Facilisi etiam dignissim diam quis. Leo duis ut diam quam. Dignissim sodales ut eu sem integer vitae justo eget. Pellentesque eu tincidunt tortor aliquam nulla. Donec massa sapien faucibus et molestie ac feugiat.</p>
+
 <br><br> 
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus et. Nec feugiat in fermentum posuere urna nec. Donec ac odio tempor orci dapibus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Non curabitur gravida arcu ac tortor. Elementum pulvinar etiam non quam lacus. Condimentum lacinia quis vel eros donec ac odio. Euismod quis viverra nibh cras pulvinar mattis nunc. A cras semper auctor neque vitae tempus. Eros donec ac odio tempor orci dapibus ultrices. Sit amet massa vitae tortor. Tincidunt eget nullam non nisi est sit. Et malesuada fames ac turpis egestas sed tempus urna. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Facilisi etiam dignissim diam quis. Leo duis ut diam quam. Dignissim sodales ut eu sem integer vitae justo eget. Pellentesque eu tincidunt tortor aliquam nulla. Donec massa sapien faucibus et molestie ac feugiat.</p>
 </div>
 
-<div id="qaf" class="faq">
+<div id="qaf" class="block">
+
+<h3>Questions, Frequently Asked</h3>
 
 <br><br> 
 
-<h1>Questions, Frequently Asked</h1>
-
-<br><br> 
-
-<h3>Hi, uh, is this a question?</h3>
+<h4>Hi, uh, is this a question?</h4>
 
 <br><br> 
 
@@ -229,7 +218,7 @@ function init() {
 
 <br><br> 
 
-<h3>What about this, is this a question?</h3>
+<h4>What about this, is this a question?</h4>
 
 <br><br> 
 
@@ -250,9 +239,6 @@ function init() {
 <br><br> 
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus et. Nec feugiat in fermentum posuere urna nec. Donec ac odio tempor orci dapibus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Non curabitur gravida arcu ac tortor. Elementum pulvinar etiam non quam lacus. Condimentum lacinia quis vel eros donec ac odio. Euismod quis viverra nibh cras pulvinar mattis nunc. A cras semper auctor neque vitae tempus. Eros donec ac odio tempor orci dapibus ultrices. Sit amet massa vitae tortor. Tincidunt eget nullam non nisi est sit. Et malesuada fames ac turpis egestas sed tempus urna. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Facilisi etiam dignissim diam quis. Leo duis ut diam quam. Dignissim sodales ut eu sem integer vitae justo eget. Pellentesque eu tincidunt tortor aliquam nulla. Donec massa sapien faucibus et molestie ac feugiat.</p>
-
-<br><br> 
-
 </div>
 
 
