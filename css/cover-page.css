@@ -11,6 +11,10 @@ body {
 	background: #888888;
 }
 
+#menu {
+	margin-left: -10000px;
+}
+
 #title {
 	position: relative;
 	top: 40px;

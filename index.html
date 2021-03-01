@@ -59,7 +59,6 @@ function init() {
   
   stage.enableMouseOver(10);
 
-
   // letters into the page
   for (var i = 0; i < 100; i++) {
     var lett = alphabet[Math.random() * alphabet.length | 0];
@@ -153,21 +152,25 @@ function init() {
 
   }
 
-  makeWordButton("About/Contact", 60, 60, 0, gotoAbout);
-  makeWordButton("Poems", 60, 95, 1500, gotoStory);
-  makeWordButton("Stories", 60, 130, 3000, gotoStory);
+  makeWordButton("About", 60, 60, 0, gotoAbout);
+  makeWordButton("Poems", 60, 95, 1500, gotoPoems);
+  makeWordButton("Stories", 60, 130, 3000, gotoStories);
   makeWordButton("QFAs", 60, 165, 4500, gotoQFA);
 
-  function gotoStory() {
-    window.open ('htmls/tommys/movingdayfinalfinalfinalfinalversion.html','_self',false);
+  function gotoAbout() {
+    window.open ('index.html#about','_self',false);
+  }
+
+  function gotoPoems() {
+    window.open ('poems.html','_self',false);
+  }
+
+  function gotoStories() {
+    window.open ('stories.html','_self',false);
   }
 
   function gotoQFA() {
     window.open ('index.html#qaf','_self',false);
-  }
-
-  function gotoAbout() {
-    window.open ('index.html#about','_self',false);
   }
 
   createjs.Ticker.addEventListener("tick", stage);
@@ -177,6 +180,15 @@ function init() {
 
 
 <body onload="init();">
+
+ <table id="menu">
+  <tr>
+    <th><a href="index.html#about">About</a></th>
+    <th><a href="poems.html">Poems</a></th>
+    <th><a href="stories.html">Stories</a></th>
+    <th><a href="index.html#qaf">QAFs</a></th>
+  </tr>
+</table> 
 
 <div>
   <h1 id="title"> 
