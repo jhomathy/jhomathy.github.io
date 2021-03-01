@@ -34,7 +34,6 @@ body {
 }
 
 #motive {
-
 	position: relative;
 	top: 60px;
 	left: 50%;
@@ -53,7 +52,6 @@ body {
 	border-color: black;
 
 	margin-left: -186px;
-
 }
 
 
@@ -80,16 +78,3 @@ body {
 	padding: 10px;
 	margin: 10px;
 }
-
-canvas {
-	border: solid 0px rgba(0,0,0,0.1);
-
-	position: relative;
-	
-	top: 100px;
-	left: 50%;
-
-	margin-left: -160px;
-	margin-bottom: 10px;
-}
-
