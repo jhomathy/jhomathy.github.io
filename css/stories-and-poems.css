@@ -7,12 +7,14 @@ body, html {
 }
 
 body {
-	background: #888888;
+	background: #555555;
 }
 
 #title {
 	position: relative;
 	top: 40px;
+
+	background: #A9A9A9;
 
 	text-align: center;
 	font-size: 24px;
@@ -33,6 +35,8 @@ body {
 	position: relative;
 	top: 60px;
 
+	background: #A9A9A9;
+
 	text-align: center;
 	font-size: 16px;
 	font-weight: normal;
@@ -51,6 +55,8 @@ body {
 .block {
 	position: relative;
 	top: 100px;
+
+	background: #A9A9A9;
 
 	min-width: 320px;
 
@@ -75,6 +81,8 @@ body {
 	position: relative;
 	top: 100px;
 
+	background: #A9A9A9;
+
 	padding: 10px;
 	margin: 10px;
 
@@ -86,6 +94,8 @@ body {
 .story {
 	position: relative;
 	top: 100px;
+
+	background: #A9A9A9;
 
 	padding: 10px;
 	margin: 10px;
@@ -99,8 +109,22 @@ body {
 	width: 360px;
 }
 
+@media screen and (max-width: 432px) {
+	.poem, #poem_0 {
+		margin: 0 auto;
+		width: 90%;
+		left: auto;
+		margin-left: auto;
+		margin-bottom: 10px;
+
+		overflow: auto;
+  		white-space: nowrap;
+}
+
 #legal {
 	font-size: 10px;
+
+	background: #696969;
 }
 
 .space {
