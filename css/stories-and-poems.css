@@ -69,11 +69,21 @@ body {
 }
 
 @media screen and (max-width: 432px) {
-	#title, #motive, .block {
+	#title, #motive {
 		margin: 0 auto;
 		width: 90%;
 		left: auto;
 		margin-left: auto;
+	};
+}
+
+@media screen and (max-width: 432px) {
+	.block {
+		margin: 0 auto;
+		width: 90%;
+		left: auto;
+		margin-left: auto;
+		margin-bottom: 10px;
 	};
 }
 
@@ -119,12 +129,25 @@ body {
 
 		overflow: auto;
   		white-space: nowrap;
+  	}
 }
 
-#legal {
+.legal {
+	position: relative;
+	top: 100px;
+
 	font-size: 10px;
 
 	background: #696969;
+
+	min-width: 320px;
+
+	padding: 10px;
+	margin: 10px;
+
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
 }
 
 .space {
