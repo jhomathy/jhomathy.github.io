@@ -3,11 +3,16 @@
 
 <!--
   RESOURCES
-https://www.createjs.com/getting-started/easeljs
+  https://www.createjs.com/getting-started/easeljs
+  https://wave.webaim.org/report#/tpyomag.com
 -->
 
 <!--
-
+  TODO:
+    - make a navbar in JS
+    - add more the the QFAs
+    - make a tpyo generating function
+    - create several authorial persona & nyms
 --> 
 
 <head>
@@ -17,157 +22,7 @@ https://www.createjs.com/getting-started/easeljs
   <link href="css/cover-page.css" type="text/css" rel="stylesheet"/>
   <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
   <script src="https://code.createjs.com/1.0.0/tweenjs.min.js"></script>
-<script> 
-function init() {
-
-  var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-  var fonts = ["Times", "Arial", "Courier"];
-  var fontSize = 28;
-  var randomFontsInButtons = false;
-
-  function getBorderCoords() {
-    var x, y;
-    if (Math.random() > 0.5) {
-      if (Math.random() > 0.5) {
-        x = 0; y = Math.random() * (canvas.height - fontSize);
-      }
-      else {
-        x = canvas.width - fontSize; y = Math.random() * (canvas.height - fontSize);
-      }
-    }
-    else {
-      if (Math.random() > 0.5) {
-        x = Math.random() * (canvas.width - fontSize); y = 0;
-      }
-      else {
-        x = Math.random() * (canvas.width - fontSize); y = canvas.height - fontSize;
-      }
-    }
-    return [x, y];
-  }
-
-  var canvas = document.getElementById("menu animation");
-  var stage = new createjs.Stage(canvas);
-  
-  stage.enableMouseOver(10);
-
-  // letters into the page
-  for (var i = 0; i < 100; i++) {
-    var lett = alphabet[Math.random() * alphabet.length | 0];
-    var font = fonts[Math.random() * fonts.length | 0];
-    var randomLetter = new createjs.Text(lett, fontSize + "px " + font, "#000000");
-
-    randomLetter.x = 0;
-    randomLetter.y = 0;
-    randomLetter.speed = Math.random() * 2000 + 500;
-    randomLetter.reveal = Math.random() * 4000 + 1000;
-    randomLetter.alpha = 0;
-
-    createjs.Tween.get(randomLetter, {loop: 0})
-      .wait(randomLetter.reveal)
-      .to({alpha: 1}, 500);
-
-    if (i > 50) {
-      createjs.Tween.get(randomLetter, {loop: -1})
-        .to({x: 0, y: canvas.height - fontSize}, randomLetter.speed)
-        .to({x: canvas.width - fontSize, y: canvas.height - fontSize}, randomLetter.speed)
-        .to({x: canvas.width - fontSize, y: 0}, randomLetter.speed)
-        .to({x: 0, y: 0}, randomLetter.speed);
-    }
-    else {
-      createjs.Tween.get(randomLetter, {loop: -1})
-        .to({x: canvas.width - fontSize, y: 0}, randomLetter.speed)
-        .to({x: canvas.width - fontSize, y: canvas.height - fontSize}, randomLetter.speed)
-        .to({x: 0, y: canvas.height - fontSize}, randomLetter.speed)
-        .to({x: 0, y: 0}, randomLetter.speed);
-    }
-
-    stage.addChild(randomLetter);
-  }
-
-  function makeWordButton(word, xPos, yPos, time, fn) {
-
-    var maxX = xPos;
-    var maxY = yPos;
-    var minX = xPos;
-    var minY = yPos;
-
-    var maxTime = 0;
-
-    for (let i = 0; i < word.length; i++) {
-      if (randomFontsInButtons) {var font = fonts[Math.random() * fonts.length | 0];}
-      else {var font = fonts[0];}
-      var letter = new createjs.Text(word[i], fontSize + "px " + font, "#000000");
-      letter.finalX = xPos;
-      letter.finalY = yPos;
-
-      var coords = getBorderCoords();
-
-      letter.x = coords[0];
-      letter.y = coords[1];
-      letter.speed = Math.random() * 2000 + 500;
-      letter.reveal = Math.random() * 2000 + time + 2000;
-      maxTime = Math.max(maxTime, letter.reveal + letter.speed);
-      letter.alpha = 0;
-
-      createjs.Tween.get(letter, {loop: 0})
-        .wait(letter.reveal)
-        .to({alpha: 1}, 500)
-        .to({x: letter.finalX, y: letter.finalY}, letter.speed);
-
-      stage.addChild(letter);
-
-      xPos = letter.finalX + letter.getMeasuredWidth();
-
-      if (letter.finalX + letter.getMeasuredWidth() > maxX) {maxX = xPos;}
-      if (letter.finalY + letter.getMeasuredHeight() > maxY) {maxY = yPos + letter.getMeasuredHeight();}
-      if (letter.finalX < minX) {minX = letter.finalX;}
-      if (letter.finalY < minY) {minY = letter.finalY;}
-    }
-
-    function handleInteraction(event) {
-        event.target.alpha = (event.type == "mouseover") ? 0.4 : 0.01; 
-    }
-
-    var rect = new createjs.Shape();
-    rect.graphics.beginFill("#555555").drawRect(minX - 2, minY - 2, maxX - minX + 2, maxY - minY + 2);
-    rect.alpha = 0;
-    createjs.Tween.get(rect, {loop: 0})
-        .wait(maxTime)
-        .to({alpha: 0.01});
-    
-    rect.on("click", fn);
-    rect.on("mouseover", handleInteraction);
-    rect.on("mouseout", handleInteraction);
-
-    stage.addChild(rect);
-
-  }
-
-  makeWordButton("About", 60, 60, 0, gotoAbout);
-  makeWordButton("Poems", 60, 95, 1500, gotoPoems);
-  makeWordButton("Stories", 60, 130, 3000, gotoStories);
-  makeWordButton("QFAs", 60, 165, 4500, gotoQFA);
-
-  function gotoAbout() {
-    window.open ('index.html#about','_self',false);
-  }
-
-  function gotoPoems() {
-    window.open ('poems.html','_self',false);
-  }
-
-  function gotoStories() {
-    window.open ('stories.html','_self',false);
-  }
-
-  function gotoQFA() {
-    window.open ('index.html#qaf','_self',false);
-  }
-
-  createjs.Ticker.addEventListener("tick", stage);
-}
-</script>
+  <script src="javascript/tpyomainanima.js"></script>
 </head>
 
 
@@ -206,7 +61,7 @@ function init() {
 
 <br>
 
-<p>TPYO MAG (stylized as "T|P|Y|O Mag", <i>tpyo magazine</i>, or Tpyo) is a literary magazine celebrating works that contain typos. There are many reasons the typo is deserving of celebration. Typos can be funny! They can be humbling! Twitter users have called typos a strike against colonialist and abelist standards. But most importantly, typos reminds us that we are human.</p>
+<p>TPYO MAG (stylized as "T|P|Y|O Mag", <i>tpyo magazine</i>, or Tpyo) is a literary magazine celebrating works that contain typos. There are many reasons the typo is deserving of celebration. Typos can be funny! They can be humbling! Users of the website Twitter have called typos a strike against colonialist and abelist standards. But most importantly, typos reminds us that we are human.</p>
 
 <br>
 
@@ -259,13 +114,47 @@ function init() {
 
 <br><br> 
 
-<h4>When are you planning on updating adding more content? What about more content that's not just the Questions, Frequently Asked? Do you have any plans to address accessibility concerns on Tpyo? What does Tpyo most need from its supporters? How can I help? Is any of this text permanent? Who <em>are</em> you? </h4>
+<h4>When are you planning on updating the site and adding more content? What about more content that's not just the Questions, Frequently Asked? Do you have any plans to address accessibility concerns on Tpyo? What does Tpyo most need from its supporters? How can I help? Is any of this text permanent? Who <em>are</em> you?</h4>
 
 <br>
 
 <p>can you slwo down.</p>
 
 <p>please.</p>
+
+<br><br> 
+
+<h4>Like this?</h4>
+
+<br>
+
+<p>yes! thank you so much.</p>
+
+<br><br> 
+
+<h4>What changes to the site are you planning on making, and when?</h4>
+
+<br> 
+
+<p>a great question! first, ntoe you can always track the changes being made on out github <a href="https://github.com/jhomathy/jhomathy.github.io">here</a>.</p>
+
+<p>we have a genuine, real-live poem being edited right now, which will be up at the end of march. also by the end of march, we'd like to have a nav-bar on each page, along with a page of the magazine's contributors. depending on tommy's ability to stay focused in april, we may have a demo release then! if that goes well (or honestly even if it flops hard) we'll shift focus from producing content to marketing that content.</p>
+
+<br><br> 
+
+<h4>Contributors? Are those the same thing as members?</h4>
+
+<br> 
+
+<p><em>contributors</em> are anyone whose work is being published by <i>tpyo magazine</i>. our members include our contributors, as well as editors and promoters. if an author publish in <i>tpyo magazine</i> under multiple pseudonyms, they only count as one member.</p>
+
+<br><br> 
+
+<h4>Does Tpyo pay its contributors?</h4>
+
+<br> 
+
+<p>not even in clout.</p>
 
 </div>
 
