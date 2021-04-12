@@ -51,6 +51,7 @@
     <th><a href="poems.html">Poems</a></th>
     <th><a href="stories.html">Stories</a></th>
     <th><a href="drafts.html">Drafts</a></th>
+    <th><a href="submit.html">Submit</a></th>
     <th><a href="index.html#qaf">QAFs</a></th>
   </tr>
 </table> 
@@ -76,7 +77,14 @@
 
 <h3>Questions, Frequently Asked</h3>
 
-<br><br> 
+
+<br>
+<button onclick="getMarchQAFs()">QAFs (March 2021)</button>
+<br>
+<p id="qafsmarch2021"></p>
+<script>
+function getMarchQAFs() {
+  var toDisplay = `<br><br> 
 
 <h4>Hello?</h4>
 
@@ -156,7 +164,29 @@
 
 <p>not even in clout.</p>
 
+<br><br> 
+
+<h4>So how's that draft going? Is it...real?</h4>
+
+<br> 
+
+<p>of course it's real it's just hiddden on the secret D|R|A|F|T|S page right nopw.</p>
+
+<br>`;
+  document.getElementById("qafsmarch2021").innerHTML = toDisplay;
+}
+</script>
+
+<br><br> 
+
+<h4>Where did all the other QAFs go?</h4>
+
+<br> 
+
+<p>oh i just hid them behind a button for now,, wanted to lcean things up a bit.</p>
+
 </div>
+
 
 <div class="legal">
 Idk, legal stuff goes here. Things are copyrighted i guess. The code (except for the JavaScript libraries that are MIT Licensed) is owned by TPYO MAG. The stories and poems and hashtag content are owned by the people who wrote them unless those people gave the rights to someone else.

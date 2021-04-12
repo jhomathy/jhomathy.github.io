@@ -117,10 +117,16 @@ body {
 
 #poem_0 {
 	width: 360px;
+	left: 10px;
+}
+
+#poem_1_0 {
+	width: 720px;
+	left: 20px;
 }
 
 @media screen and (max-width: 432px) {
-	.poem, #poem_0 {
+	.poem, #poem_0, #poem_1_0 {
 		margin: 0 auto;
 		width: 90%;
 		left: auto;
