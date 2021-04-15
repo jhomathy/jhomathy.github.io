@@ -91,10 +91,13 @@ body {
 	position: relative;
 	top: 100px;
 
+	display: inline-block;
+
 	background: #A9A9A9;
 
 	padding: 10px;
 	margin: 10px;
+	left: 10px;
 
 	border-style: solid;
 	border-width: 2px;
@@ -113,21 +116,6 @@ body {
 	border-style: solid;
 	border-width: 2px;
 	border-color: black;
-}
-
-#poem_0 {
-	width: 360px;
-	left: 10px;
-}
-
-#poem_1 {
-	width: 720px;
-	left: 20px;
-}
-
-#poem_2 {
-	width: 520px;
-	left: 20px;
 }
 
 @media screen and (max-width: 432px) {
