@@ -120,8 +120,13 @@ body {
 	left: 10px;
 }
 
-#poem_1_0 {
+#poem_1 {
 	width: 720px;
+	left: 20px;
+}
+
+#poem_2 {
+	width: 520px;
 	left: 20px;
 }
 
