@@ -118,6 +118,11 @@ body {
 	border-color: black;
 }
 
+ul {
+    margin-left: 0;
+    padding-left: 20px;
+}
+
 @media screen and (max-width: 432px) {
 	.poem, #poem_0, #poem_1_0 {
 		margin: 0 auto;

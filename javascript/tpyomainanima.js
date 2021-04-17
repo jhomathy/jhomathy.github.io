@@ -134,7 +134,7 @@ function init() {
   }
 
   function gotoPoems() {
-    window.open ('poems.html','_self',false);
+    window.open ('poetry.html','_self',false);
   }
 
   function gotoStories() {

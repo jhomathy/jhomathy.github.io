@@ -28,10 +28,8 @@ function init() {
 
     if (i > 50) {
       createjs.Tween.get(randomLetter, {loop: -1})
-        .to({x: 0, y: canvas.height - fontSize}, randomLetter.speed)
-        .to({x: canvas.width - fontSize, y: canvas.height - fontSize}, randomLetter.speed)
         .to({x: canvas.width - fontSize, y: 0}, randomLetter.speed)
-        .to({x: 0, y: 0}, randomLetter.speed);
+        .to({x: canvas.width, y: canvas.height - fontSize}, randomLetter.speed)
     }
     else {
       createjs.Tween.get(randomLetter, {loop: -1})
