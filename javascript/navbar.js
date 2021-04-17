@@ -103,7 +103,7 @@ function init() {
   }
 
   makeWordButtonNav("Home", 20, 0, gotoHome);
-  makeWordButtonNav("Random", 314, 0, gotoRandom);
+  makeWordButtonNav("Random", 304, 0, gotoRandom);
 
   function gotoHome() {
     window.open ('index.html','_self',false);
