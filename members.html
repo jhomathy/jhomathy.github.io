@@ -2,40 +2,31 @@
 <html lang="en">
 
 <head>
-  <title>TPYO Poems</title>
+  <title>TPYO Members</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8"/>
   <link href="css/stories-and-poems.css" type="text/css" rel="stylesheet"/>
+  <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+  <script src="https://code.createjs.com/1.0.0/tweenjs.min.js"></script>
+  <script src="javascript/navbar.js"></script>
 </head>
 
-<body>
+<body onload="init();">
 
-<a href="index.html">Home.</a>
+<canvas id="nav bar" width="432" height="30" alt="nav bar">
+  <p>
+    This navbar has a "Home" button and a "Random" button.
+  </p>
+</canvas>
 
 <div>
   <h1 id="title"> 
-    | P | O | E | T | R | Y |
+    | M | E | M | B | E | R | S |
   </h1>
   <h2 id="motive">
-    Poems! 
+    The persons who work and own this magazine.
   </h2>
 </div>
-
-<!-- Poems appear most to least recent. -->
-
-<div id="poem_0" class="poem">
-  "example poem for Tpyo" <br>
-<strong>by Tommy</strong> <br>
-
-<br>
-
-this is a pome <br>
-oh i mean a poem   <br>
-a pomey poem   <br>
-it's an example i'll get rid of it soon enough. <br>
-or will i      <br>
-</div>
-
 
 <div class="legal">
 Idk, legal stuff goes here. Things are copyrighted i guess. The code (except for the JavaScript libraries that are MIT Licensed) is owned by TPYO MAG. The stories and poems and hashtag content are owned by the people who wrote them unless those people gave the rights to someone else.
@@ -45,3 +36,8 @@ Idk, legal stuff goes here. Things are copyrighted i guess. The code (except for
 
 </body>
 </html>
+
+
+
+
+

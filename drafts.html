@@ -6,11 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8"/>
   <link href="css/stories-and-poems.css" type="text/css" rel="stylesheet"/>
+  <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+  <script src="https://code.createjs.com/1.0.0/tweenjs.min.js"></script>
+  <script src="javascript/navbar.js"></script>
 </head>
 
-<body>
+<body onload="init();">
 
-<a href="index.html">Home.</a>
+<canvas id="nav bar" width="432" height="30" alt="nav bar">
+  <p>
+    This navbar has a "Home" button and a "Random" button.
+  </p>
+</canvas>
 
 <div>
   <h1 id="title"> 

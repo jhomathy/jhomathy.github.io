@@ -125,7 +125,7 @@ function init() {
   }
 
   makeWordButton("About", 60, 60, 0, gotoAbout);
-  makeWordButton("Poems", 60, 95, 1500, gotoPoems);
+  makeWordButton("Poetry", 60, 95, 1500, gotoPoetry);
   makeWordButton("Stories", 60, 130, 3000, gotoStories);
   makeWordButton("QFAs", 60, 165, 4500, gotoQFA);
 
@@ -133,7 +133,7 @@ function init() {
     window.open ('index.html#about','_self',false);
   }
 
-  function gotoPoems() {
+  function gotoPoetry() {
     window.open ('poetry.html','_self',false);
   }
 

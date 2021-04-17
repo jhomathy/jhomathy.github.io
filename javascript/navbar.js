@@ -16,33 +16,36 @@ function init() {
     var font = fonts[Math.random() * fonts.length | 0];
     var randomLetter = new createjs.Text(lett, fontSize + "px " + font, "#000000");
 
-    randomLetter.x = 0;
-    randomLetter.y = 0;
-    randomLetter.speed = Math.random() * 2000 + 500;
-    randomLetter.reveal = Math.random() * 2000 + 500;
+    randomLetter.speed = Math.random() * 3000 + 1000;
+    randomLetter.reveal = Math.random() * 1000 + 250;
+    randomLetter.wait = Math.random() * 500; 
+    randomLetter.disappear = Math.random() * 1000 + 1500;
     randomLetter.alpha = 0;
+    randomLetter.y = 0;
 
     createjs.Tween.get(randomLetter, {loop: 0})
       .wait(randomLetter.reveal)
-      .to({alpha: 1}, 500);
+      .to({alpha: 1}, 500)
+      .wait(randomLetter.disappear)
+      .to({alpha: 0}, 500);
 
     if (i > 50) {
+      randomLetter.x = -5 * Math.random() * fontSize;
+    
       createjs.Tween.get(randomLetter, {loop: -1})
-        .to({x: canvas.width - fontSize, y: 0}, randomLetter.speed)
-        .to({x: canvas.width, y: canvas.height - fontSize}, randomLetter.speed)
+        .to({x: canvas.width + fontSize, y: 0}, randomLetter.speed);
     }
     else {
+      randomLetter.x = canvas.width + 5 * fontSize;
+    
       createjs.Tween.get(randomLetter, {loop: -1})
-        .to({x: canvas.width - fontSize, y: 0}, randomLetter.speed)
-        .to({x: canvas.width - fontSize, y: canvas.height - fontSize}, randomLetter.speed)
-        .to({x: 0, y: canvas.height - fontSize}, randomLetter.speed)
-        .to({x: 0, y: 0}, randomLetter.speed);
+        .to({x: -1 * fontSize, y: 0}, randomLetter.speed);
     }
 
     stage.addChild(randomLetter);
   }
 
-  function makeWordButton(word, xPos, yPos, time, fn) {
+  function makeWordButtonNav(word, xPos, yPos, fn) {
 
     var maxX = xPos;
     var maxY = yPos;
@@ -58,12 +61,13 @@ function init() {
       letter.finalX = xPos;
       letter.finalY = yPos;
 
-      var coords = getBorderCoords();
-
-      letter.x = coords[0];
-      letter.y = coords[1];
+      if (Math.random() > 0.5) {letter.x = 0;}
+      else {letter.x = canvas.width - fontSize;}
+      
+      letter.y = 0;
       letter.speed = Math.random() * 2000 + 500;
-      letter.reveal = Math.random() * 2000 + time + 2000;
+
+      letter.reveal = Math.random() * 2000 + 1000;
       maxTime = Math.max(maxTime, letter.reveal + letter.speed);
       letter.alpha = 0;
 
@@ -75,11 +79,8 @@ function init() {
       stage.addChild(letter);
 
       xPos = letter.finalX + letter.getMeasuredWidth();
-
-      if (letter.finalX + letter.getMeasuredWidth() > maxX) {maxX = xPos;}
-      if (letter.finalY + letter.getMeasuredHeight() > maxY) {maxY = yPos + letter.getMeasuredHeight();}
-      if (letter.finalX < minX) {minX = letter.finalX;}
-      if (letter.finalY < minY) {minY = letter.finalY;}
+      if (letter.finalX > maxX) {maxX = xPos;}
+      if (letter.finalY + letter.getMeasuredHeight() > maxY) {maxY = letter.finalY + letter.getMeasuredHeight();}
     }
 
     function handleInteraction(event) {
@@ -101,25 +102,20 @@ function init() {
 
   }
 
-  makeWordButton("About", 60, 60, 0, gotoAbout);
-  makeWordButton("Poems", 60, 95, 1500, gotoPoems);
-  makeWordButton("Stories", 60, 130, 3000, gotoStories);
-  makeWordButton("QFAs", 60, 165, 4500, gotoQFA);
+  makeWordButtonNav("Home", 0, 0, gotoHome);
+  makeWordButtonNav("Random", canvas.width - 5 * fontSize, 0, gotoRandom);
 
-  function gotoAbout() {
-    window.open ('index.html#about','_self',false);
+  function gotoHome() {
+    window.open ('index.html','_self',false);
   }
-
-  function gotoPoems() {
-    window.open ('poems.html','_self',false);
-  }
-
-  function gotoStories() {
-    window.open ('stories.html','_self',false);
-  }
-
-  function gotoQFA() {
-    window.open ('index.html#qaf','_self',false);
+  function gotoRandom() {
+    pages = ["index.html", "index.html",
+             "poetry.html", "poetry.html", "poetry.html", "poetry.html",
+             "stories.html", "stories.html", "stories.html", "stories.html",
+             "notes.html",
+             "submit.html"];
+    page = pages[Math.random() * pages.length | 0];
+    window.open (page,'_self',false);
   }
 
   createjs.Ticker.addEventListener("tick", stage);

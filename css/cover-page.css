@@ -12,7 +12,9 @@ body {
 }
 
 #menu {
-	margin-left: -10000px;
+	position: absolute;
+	left: -1000px;
+	top: -1000px;
 }
 
 #title {
