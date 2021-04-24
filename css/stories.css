@@ -1,0 +1,177 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+body, html {
+   height:100%;
+}
+
+body {
+	background: #555555;
+}
+
+canvas {
+	border: solid 0px rgba(0,0,0,0.1);
+
+	position: relative;
+	
+	top: 20px;
+	left: 50%;
+
+	margin-left: -216px;
+}
+
+#title {
+	position: relative;
+	top: 40px;
+
+	background: #A9A9A9;
+
+	text-align: center;
+	font-size: 24px;
+	font-weight: normal;
+	
+	width: 320px;
+
+	margin: 0 auto;
+	margin-left: -6;
+
+	padding: 10px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+}
+
+#motive {
+	position: relative;
+	top: 60px;
+
+	background: #A9A9A9;
+
+	text-align: center;
+	font-size: 16px;
+	font-weight: normal;
+
+	width: 420px;
+
+	margin: 0 auto;
+	margin-left: -6;
+
+	padding: 10px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+}
+
+.block {
+	position: relative;
+	top: 100px;
+
+	background: #A9A9A9;
+
+	min-width: 320px;
+
+	padding: 10px;
+	margin: 10px;
+
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+}
+
+@media screen and (max-width: 432px) {
+	#title, #motive {
+		margin: 0 auto;
+		width: 90%;
+		left: auto;
+		margin-left: auto;
+	};
+}
+
+@media screen and (max-width: 432px) {
+	.block {
+		margin: 0 auto;
+		width: 90%;
+		left: auto;
+		margin-left: auto;
+		margin-bottom: 10px;
+	};
+}
+
+.poem {
+	position: relative;
+	top: 100px;
+
+	display: inline-block;
+
+	background: #A9A9A9;
+
+	padding: 10px;
+	margin: 10px;
+	left: 10px;
+
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+}
+
+.story {
+	position: relative;
+	top: 100px;
+
+	background: #A9A9A9;
+
+	padding: 10px;
+	margin: 10px;
+
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 20px;
+}
+
+@media screen and (max-width: 432px) {
+	.poem, #poem_0, #poem_1_0 {
+		margin: 0 auto;
+		width: 90%;
+		left: auto;
+		margin-left: auto;
+		margin-bottom: 10px;
+
+		overflow: auto;
+  		white-space: nowrap;
+  	}
+}
+
+.legal {
+	position: relative;
+	top: 100px;
+
+	font-size: 10px;
+
+	background: #696969;
+
+	min-width: 320px;
+
+	padding: 10px;
+	margin: 10px;
+
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+}
+
+.space {
+	position: relative;
+	top: 100px;
+
+	min-width: 320px;
+
+	padding: 10px;
+	margin: 10px;
+}

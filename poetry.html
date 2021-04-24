@@ -5,10 +5,15 @@
   <title>TPYO Poetry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8"/>
-  <link href="css/stories-and-poems.css" type="text/css" rel="stylesheet"/>
+  <link href="css/poetry.css" type="text/css" rel="stylesheet"/>
   <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
   <script src="https://code.createjs.com/1.0.0/tweenjs.min.js"></script>
   <script src="javascript/navbar.js"></script>
+  <script>
+    function switchPoemToText(n) {
+      getElementById('poem_' + String(n)).innerHTML = '';
+    }
+  </script>
 </head>
 
 <body onload="init();">
@@ -39,17 +44,8 @@ text / html space version;
 
 <!-- Poems appear most to least recent. -->
 
-<div id="poem_0" class="poem">
-  "example poem for Tpyo" <br>
-<strong>by Tommy</strong> <br>
-
-<br>
-
-this is a pome <br>
-oh i mean a poem   <br>
-a pomey poem   <br>
-it's an example i'll get rid of it soon enough. <br>
-or will i      <br>
+<div id="poem_0" style="cursor: pointer;">
+<img src="imgs/poimgs/poem_0.png" alt="example poem" onclick="switchPoemToText();">
 </div>
 
 
