@@ -119,7 +119,7 @@ canvas {
 .poem {
 	display: inline-block;
 
-	background: #A9A9A9;
+	background: #F5F5F5;
 
 	overflow: auto;
   	white-space: nowrap;

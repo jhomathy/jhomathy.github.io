@@ -6,26 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8"/>
   <link href="css/poetry.css" type="text/css" rel="stylesheet"/>
-  <script>
-    const fs = require('fs')
-    function switchPoemToText(n) {
-      var poem = document.getElementById('poem_' + String(n));
-      poem.innerHTML = `
-      <div width="528px" height="100px" class="poem">
-      <h1 style="text-align: right;">Tommy</h1>
-      <h3>"example poem for Tpyo"</h3> 
-      
-      <br> <br>
-      
-      this is a pome <br>
-      oh i mean a poem   <br>
-      a pomey poem   <br>
-      it's an example i'll get rid of it soon enough. <br>
-      or will i      <br>
-
-      </div>`;
-    }
-</script>
   <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
   <script src="https://code.createjs.com/1.0.0/tweenjs.min.js"></script>
   <script src="javascript/navbar.js"></script>
@@ -62,8 +42,45 @@ text / html space version;
 <div id="poem_box">
 
 
-<div id="poem_0" >
-<img src="imgs/poimgs/poem_0.png" alt="example poem (i.e. poem_0)" style="cursor: pointer;" onclick="switchPoemToText(0);">
+<div id="poem_0" class="poem" width="528px" height="100px">
+  <h1 style="text-align: right;">Tommy</h1>
+  <h3>"example poem for Tpyo"</h3> 
+        
+  <br> <br>
+        
+  this is a pome <br>
+  oh i mean a poem   <br>
+  a pomey poem   <br>
+  it's an example i'll get rid of it soon enough. <br>
+  or will i      <br>
+</div>
+
+<div id="poem_4" class="poem" width="600px" height="800px">
+  <h1 style="text-align: right;">Anonymous</h1>
+  <h3>"Unititled"</h3> 
+        
+  <br> <br>
+        
+  my whole life <br>
+  is a typo   <br>
+  a pomey poem   <br>
+  it's an example i'll get rid of it soon enough. <br>
+  or will i      <br>
+
+  <br> <br>
+        
+  my whole life <br>
+  is a typo   <br>
+  a pomey poem   <br>
+  it's an example i'll get rid of it soon enough. <br>
+  or will i      <br>
+
+  <br> <br>
+
+  my whole life <br>
+  is a typo   <br>
+  a pomey poem   <br>
+  it's an example i'll get rid of it soon enough. <br>
 </div>
 
 </div>
